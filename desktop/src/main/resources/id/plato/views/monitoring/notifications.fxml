@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.monitoring.NotificationsController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Notifikasi" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="filterBox" prefWidth="170"/>
+        <Button text="Tandai Semua Dibaca" styleClass="btn-secondary" onAction="#markAll"/>
+    </HBox>
+    <VBox fx:id="list" styleClass="card"/>
+</VBox>

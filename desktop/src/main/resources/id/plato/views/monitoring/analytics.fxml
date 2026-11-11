@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.monitoring.AnalyticsController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Analitik" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+
+    </HBox>
+    <VBox fx:id="body" spacing="22"/>
+</VBox>

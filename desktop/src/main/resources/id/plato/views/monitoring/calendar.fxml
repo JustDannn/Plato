@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.monitoring.CalendarController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Kalender" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="prevButton" styleClass="btn-icon" onAction="#previous"><graphic><FontIcon iconLiteral="fth-chevron-left" iconSize="16" styleClass="icon"/></graphic></Button>
+        <Label fx:id="monthLabel" styleClass="h3" minWidth="150" alignment="CENTER"/>
+        <Button styleClass="btn-icon" onAction="#next"><graphic><FontIcon iconLiteral="fth-chevron-right" iconSize="16" styleClass="icon"/></graphic></Button>
+        <Button text="Hari Ini" styleClass="btn-secondary" onAction="#today"/>
+    </HBox>
+    <HBox spacing="20">
+        <VBox styleClass="card" HBox.hgrow="ALWAYS"><GridPane fx:id="grid" hgap="6" vgap="6"/></VBox>
+        <VBox fx:id="side" styleClass="card" minWidth="280" prefWidth="280" maxWidth="280"/>
+    </HBox>
+</VBox>

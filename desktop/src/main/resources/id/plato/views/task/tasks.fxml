@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.task.TasksController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Tugas" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="createButton" styleClass="btn-primary" onAction="#create"><graphic><FontIcon iconLiteral="fth-plus" iconSize="16" styleClass="icon"/></graphic></Button>
+    </HBox>
+    <FlowPane hgap="12" vgap="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Cari judul atau mata kuliah" prefWidth="230"/>
+        <ComboBox fx:id="classFilter" prefWidth="200"/>
+        <ComboBox fx:id="statusFilter" prefWidth="165"/>
+        <DatePicker fx:id="fromDate" promptText="Dari" prefWidth="130"/>
+        <DatePicker fx:id="toDate" promptText="Sampai" prefWidth="130"/>
+        <Button text="Reset" styleClass="btn-secondary" onAction="#resetFilters"/>
+    </FlowPane>
+    <VBox fx:id="list" styleClass="card"/>
+</VBox>

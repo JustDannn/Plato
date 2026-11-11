@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.classroom.ClassDetailController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Detail Kelas" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox fx:id="actions" spacing="10" alignment="CENTER_RIGHT"/>
+    </HBox>
+    <VBox fx:id="body" spacing="20"/>
+</VBox>

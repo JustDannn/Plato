@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.user.CohortsController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Angkatan" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="createButton" text="Angkatan Baru" styleClass="btn-primary" onAction="#create"><graphic><FontIcon iconLiteral="fth-plus" iconSize="16" styleClass="icon"/></graphic></Button>
+    </HBox>
+    <VBox fx:id="list" styleClass="card"/>
+</VBox>

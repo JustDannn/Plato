@@ -1,0 +1,14 @@
+.env
+.DS_Store
+Thumbs.db
+
+# Backend
+backend/node_modules/
+
+# Desktop
+desktop/target/
+
+# IDE
+.idea/
+.vscode/
+*.iml

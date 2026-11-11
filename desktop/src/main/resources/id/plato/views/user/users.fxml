@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.user.UsersController" styleClass="page">
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="title" text="Pengguna" styleClass="h1"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Pengguna Baru" styleClass="btn-primary" onAction="#create"><graphic><FontIcon iconLiteral="fth-plus" iconSize="16" styleClass="icon"/></graphic></Button>
+    </HBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Cari nama atau email" prefWidth="280"/>
+        <ComboBox fx:id="roleFilter" prefWidth="180"/>
+    </HBox>
+    <VBox fx:id="list" styleClass="card"/>
+</VBox>

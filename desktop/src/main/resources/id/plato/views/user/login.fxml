@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.user.LoginController" styleClass="login-root">
+    <VBox styleClass="login-card" maxHeight="-Infinity">
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <SVGPath styleClass="brand-mark" content="M1 3h24v3.5H1z M3.5 9h4v10h-4z M11 9h4v10h-4z M18.5 9h4v10h-4z M1 21.5h24V25H1z"/>
+            <Label text="PLATO" styleClass="brand-name"/>
+        </HBox>
+        <VBox spacing="6">
+            <Label text="Masuk" styleClass="h1"/>
+            <Label text="Platform pelacakan dan pengarsipan tugas kuliah." styleClass="muted" wrapText="true"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="Email" styleClass="form-label"/>
+            <TextField fx:id="emailField" promptText="nama@plato.test"/>
+        </VBox>
+        <VBox spacing="6">
+            <Label text="Password" styleClass="form-label"/>
+            <PasswordField fx:id="passwordField" onAction="#submit"/>
+        </VBox>
+        <Label fx:id="message" styleClass="form-error" wrapText="true" managed="false" visible="false"/>
+        <Button fx:id="submitButton" text="Masuk" styleClass="btn-primary" onAction="#submit" maxWidth="Infinity"/>
+    </VBox>
+</StackPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="id.plato.core.ShellController">
+    <left>
+        <VBox fx:id="sidebar" styleClass="sidebar">
+            <HBox fx:id="brand" styleClass="brand" alignment="CENTER_LEFT" spacing="10">
+                <SVGPath styleClass="brand-mark" content="M1 3h24v3.5H1z M3.5 9h4v10h-4z M11 9h4v10h-4z M18.5 9h4v10h-4z M1 21.5h24V25H1z"/>
+                <Label fx:id="brandName" text="PLATO" styleClass="brand-name"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button styleClass="btn-icon" onAction="#toggleSidebar"><graphic><FontIcon iconLiteral="fth-sidebar" iconSize="16" styleClass="icon"/></graphic></Button>
+            </HBox>
+            <Label fx:id="mainHeading" text="Utama" styleClass="menu-heading"/>
+            <VBox fx:id="mainMenu" styleClass="menu"/>
+            <Label fx:id="otherHeading" text="Lainnya" styleClass="menu-heading"/>
+            <VBox fx:id="otherMenu" styleClass="menu"/>
+        </VBox>
+    </left>
+    <center>
+        <StackPane styleClass="surface-wrap">
+            <VBox styleClass="surface">
+                <HBox styleClass="topbar" alignment="CENTER_LEFT">
+                    <HBox styleClass="search" alignment="CENTER_LEFT">
+                        <FontIcon iconLiteral="fth-search" iconSize="16" styleClass="icon"/>
+                        <TextField fx:id="searchField" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <HBox styleClass="topbar-actions" alignment="CENTER">
+                        <StackPane>
+                            <Button fx:id="bellButton" styleClass="btn-icon, btn-icon-plain"/>
+                            <Label fx:id="bellBadge" styleClass="bell-badge" visible="false" StackPane.alignment="TOP_RIGHT" mouseTransparent="true"/>
+                        </StackPane>
+                        <StackPane fx:id="avatarHolder" styleClass="avatar-holder"/>
+                    </HBox>
+                </HBox>
+                <ScrollPane styleClass="scroll" fitToWidth="true" VBox.vgrow="ALWAYS" hbarPolicy="NEVER">
+                    <StackPane fx:id="content"/>
+                </ScrollPane>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
