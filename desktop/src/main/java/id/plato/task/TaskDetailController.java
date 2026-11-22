@@ -127,13 +127,16 @@ public class TaskDetailController implements Page {
                     Ui.spacer(),
                     Ui.chip(milestone.getStatus(), milestone.getProgress() >= 100 ? "green" : "gray"));
             if (managing) {
+                Button edit = Ui.secondary("Ubah");
+                edit.setOnAction(event -> openEditMilestone(milestone));
+
                 Button delete = Ui.danger("Hapus");
                 delete.setOnAction(event -> {
                     if (Dialogs.confirm("Hapus Milestone", "Hapus milestone " + milestone.getTitle() + "?", "Hapus")) {
                         Async.runVoid(() -> service.deleteMilestone(milestone.getMilestoneId()), this::reload);
                     }
                 });
-                top.getChildren().add(delete);
+                top.getChildren().addAll(edit, delete);
             }
             VBox row = new VBox(10, top, canUpdateProgress(task)
                     ? progressEditor(milestone, value -> service.updateMilestoneProgress(milestone.getMilestoneId(), value))
@@ -205,8 +208,10 @@ public class TaskDetailController implements Page {
         TextField name = new TextField();
         DatePicker start = new DatePicker();
         DatePicker deadline = new DatePicker();
+
         start.setMaxWidth(Double.MAX_VALUE);
         deadline.setMaxWidth(Double.MAX_VALUE);
+
         new FormDialog("Tambah Milestone")
                 .field("Judul", name)
                 .field("Tanggal mulai", start)
@@ -214,6 +219,41 @@ public class TaskDetailController implements Page {
                 .show("Simpan", () -> {
                     Milestone milestone = new Milestone(name.getText(), "", start.getValue(), deadline.getValue());
                     Callable<Task> work = () -> service.addMilestone(taskId, milestone);
+                    return work;
+                }, this::render);
+    }
+
+    private void openEditMilestone(Milestone milestone) {
+        TextField name = new TextField(milestone.getTitle());
+
+        TextArea description = new TextArea(milestone.getDescription());
+        description.setPrefRowCount(3);
+        description.setWrapText(true);
+
+        DatePicker start = new DatePicker(milestone.getStartDate());
+        DatePicker deadline = new DatePicker(milestone.getDeadline());
+
+        start.setMaxWidth(Double.MAX_VALUE);
+        deadline.setMaxWidth(Double.MAX_VALUE);
+
+        new FormDialog("Ubah Milestone")
+                .field("Judul", name)
+                .field("Deskripsi", description)
+                .field("Tanggal mulai", start)
+                .field("Tenggat", deadline)
+                .show("Simpan", () -> {
+                    Milestone updated = new Milestone(
+                            name.getText(),
+                            description.getText(),
+                            start.getValue(),
+                            deadline.getValue()
+                    );
+
+                    Callable<Task> work = () ->
+                            service.updateMilestone(
+                                    milestone.getMilestoneId(), updated
+                            );
+
                     return work;
                 }, this::render);
     }

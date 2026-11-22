@@ -71,6 +71,10 @@ public class TaskService {
         return api.post("/tasks/" + taskId + "/milestones", milestoneBody(milestone), Task.class);
     }
 
+    public Task updateMilestone(int milestoneId, Milestone milestone) {
+        return api.put("/milestones/" + milestoneId, milestoneBody(milestone), Task.class);
+    }
+
     public void deleteMilestone(int milestoneId) {
         api.delete("/milestones/" + milestoneId);
     }
